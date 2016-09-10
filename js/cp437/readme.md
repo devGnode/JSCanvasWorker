@@ -1,4 +1,6 @@
-# Code page 437 IBM Tuto de 2014
+# Code page 437 IBM Tuto de 2014 [FR]
+
+<center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/cp43788.png?raw=true"></center>
 
 ### Convertir image cp437 en sprite puis en hexa
 
