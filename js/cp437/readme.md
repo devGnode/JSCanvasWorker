@@ -8,5 +8,5 @@ Prenons exemple sur l'image ci-desus CP437 8x8 dont chaque caractere peut-être 
 
 <center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/bitmap88.png?raw=true"></center>
 
-ainsi pour le deuxième caractère nous aurions un tableau semblable à celui-ci
+ainsi pour le deuxième caractère nous aurions un tableau matricielle semblable à celui-ci
 <center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/head.png?raw=true"></center>
