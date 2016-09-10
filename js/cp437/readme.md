@@ -1,4 +1,4 @@
-# Code page 437 IBM Tuto de 2014 :fr:
+# Code page 437 IBM speed Tuto de 2014 :fr:
 #### Convertir image cp437 en sprite puis en hexa
 
 <center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/cp43788.png?raw=true"></center>
@@ -10,3 +10,16 @@ Prenons exemple sur l'image ci-desus CP437 8x8 dont chaque caractere peut-être 
 
 ainsi pour le deuxième caractère nous aurions un tableau matricielle semblable à celui-ci
 <center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/head.png?raw=true"></center>
+
+ce qui donne en tableau :
+
+[
+0,1,1,1,1,1,1,0,
+1,0,0,0,0,0,0,1,
+1,0,1,0,0,1,0,1,
+1,0,0,0,0,0,0,1,
+1,0,1,1,1,1,0,1,
+1,0,0,1,1,0,0,1,
+1,0,0,0,0,0,0,1,
+0,1,1,1,1,1,1,0,
+]
