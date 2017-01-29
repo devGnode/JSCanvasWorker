@@ -52,6 +52,9 @@ ce qui donne en tableau :
  <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/mda9.png">
  
  * cp437-9x14
+ 
+ <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/MDA9x14.png">
+ 
  * cp437-9x16
  * cp437-8x8
  
@@ -63,7 +66,7 @@ ce qui donne en tableau :
  
  * c437-8x16
  
- <im src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/iso04-vga9-8x16.png">
+ <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/iso04-vga9-8x16.png">
  
  * cp437-thin-8x16
  * cp437-thin-8x8
