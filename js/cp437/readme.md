@@ -52,7 +52,9 @@ ce qui donne en tableau :
  * cp437-9x16
  * cp437-8x8
  * cp437-8x14
+ 
  <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/cp437-8x14.png">
+ 
  * c437-8x16
  
  * cp437-thin-8x16
