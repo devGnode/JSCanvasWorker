@@ -48,14 +48,22 @@ ce qui donne en tableau :
 ### :three: differentes police 
 
  * cp437-9x8
+ 
+ <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/mda9.png">
+ 
  * cp437-9x14
  * cp437-9x16
  * cp437-8x8
+ 
+ <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/cp43788.png">
+ 
  * cp437-8x14
  
  <img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/cp437-8x14.png">
  
  * c437-8x16
+ 
+ <im src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/iso04-vga9-8x16.png">
  
  * cp437-thin-8x16
  * cp437-thin-8x8
