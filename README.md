@@ -2,4 +2,4 @@
 
 **Files**
 
-&rarr; [Tuto](https://github.com/devGnode/JSCanvasWorker/tree/master/js/cp437)
+&rarr; [Bref explication police matricielle ](https://github.com/devGnode/JSCanvasWorker/tree/master/js/cp437)
