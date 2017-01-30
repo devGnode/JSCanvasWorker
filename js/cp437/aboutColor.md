@@ -46,6 +46,7 @@ Ici le but est de générer les palettes de couleurs Monochrome 1-bit.. , Regula
 | 7             | 111           | #FFFFFF|
 
 On peut remarquer que lorsque le bit est à 1 sont intensité est à sont maximum, donc pour réaliser la palette 3-bit RGB
+nous allons donc multiplier par son maximum une valeur qui est à 1.
 
 ```javascript
 function rgb3( r,g,b ){
@@ -80,10 +81,10 @@ function rgb3( r,g,b ){
 | 1         | 0001   | low blue  |
 | 9         | 1001   | high blue |
 
-dans le tableaux ci-dessus on peut voir que nous utilisons 3 bits pour le <u>rgb</u> est un quatrième bit qui correspont à l'intensité.
-Ci-dessous le tableau de la palette 4-bit avec une première déduction 256 / 3 = 85 &rarr; 0x55, il sera notre chiffre clef.
+Dans le tableaux ci-dessus on peut voir que nous utilisons 3 bits pour la couleur <u>rgb</u> est un quatrième bit qui correspont à sont l'intensité.
+Ci-dessous le tableau de la palette 4-bit avec une première déduction 256 / 3 = 85 &rarr; 0x55, qui sera notre chiffre clef.
 
-bien retenir que <b>0x55 + 0x55 = 0xAA + 0x55 = 0xFF </b>
+Bien retenir que <b>0x55 + 0x55 = 0xAA + 0x55 = 0xFF </b>, 
 
 | interger      | Binary        | Hex    |
 | ------------- |:-------------:| -----: |
@@ -104,24 +105,23 @@ bien retenir que <b>0x55 + 0x55 = 0xAA + 0x55 = 0xFF </b>
 | 14            | 1110          | #FFFF55|
 | 15            | 1111          | #FFFFFF|
 
-Nous pouvons remarquer lorsque l'intensiter est à 0 nous avons 0xAA ( 170 en decimal  ) et lorsque l'intsiter est à 1 
-pour 0 nous avons 0x55 et pour 1 &rarr; 0xFF
+### La speudo table de vériter
 
-on suivera donc cette logique avec une exception : 
-
- ( ( x << 1 ) | intensity ) * 0x55
- 
- quand i == 6 alors on divisera just cette somme par deux pour le rayon <b>Green</b>:
- 
-  ( ( ( x << 1 ) | intensity ) * 0x55 ) / 2
- 
 | bit           | Intensity     | equal | Output |
 | ------------- |:-------------:|:-----:| -----: |
 | 0             | 0             | = 0   | 0x00   |
 | 0             | 1             | = 1   | 0x55   |
 | 1             | 0             | = 2   | 0xAA   |
 | 1             | 1             | = 3   | 0xFF   |
-  
+
+on suivera donc cette logique avec une exception : 
+
+ ( ( x << 1 ) | intensity ) * 0x55
+ 
+ quand i sera égal à 6 alors on divisera juste cette somme par deux pour le <b>Green</b>:
+ 
+  ( ( ( x << 1 ) | intensity ) * 0x55 ) / 2
+ 
 ```javascript
 function rgbi( bpp, i, r,g,b, itr ){
 	var add = Math.floor( 0x100/bpp );
