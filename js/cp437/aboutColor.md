@@ -32,7 +32,7 @@ Ici le but est de générer les palettes de couleurs Monochrome 1-bit.. , Regula
 8 bits = 2 <sup> 8 </sup> = 256 couleurs Format JPEG, TIFF .... 
 
 ## :two: Regular palettes
-### 3-bit 
+### 3-bit rgb ECMA-48 , SECAM, TELETEXT, VIDEOTEXT...
 
 | interger      | Binary        | Hex    |
 | ------------- |:-------------:| -----: |
@@ -68,8 +68,12 @@ function rgb3( r,g,b ){
 ```
 <center><img src="https://github.com/devGnode/JSCanvasWorker/blob/master/js/cp437/3bit.png"></center>
 
+### 6-bit RGBrgb  EGA & VGA, sega...
+
+
+
 ## :three: Non-Regular palettes
-### 4-bit RGBi
+### 4-bit RGBi CGA, EGA & VGA, COMMODORE 128...
 
 | interger  | Binary | comment   |
 |:----------|:------:|:---------:|
