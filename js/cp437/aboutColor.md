@@ -13,10 +13,10 @@
   * 3-3-2-bit RGB
   
 Aujourd'hui nous utilisons les couleurs 24-bit RGB qui est representer sous forme de 3 octects de 8-bits ( R G B ) dont chacun des ces bytes corresponde 
-à l'intensiter de celle-ci, nous avons un byte pour le <style="color:blue"><b>Red</b></style>, un second pour le <b> Green </b>, 
+à l'intensiter de celle-ci, nous avons un byte pour le <span style="color:blue"><b>Red</b></span>, un second pour le <b> Green </b>, 
 et pour finir un pour le <span style="color:blue"><b>Blue</b></span>. il peut être aussi réprésenter sous forme hexadécimal # FF FF FF &rarr; # R G B
 que  nous pouvons croiser beaucoup dans le developpement web. Dans sont fonctionnement 
-plus ce byte ( r, g ou  b ) se raproche de 255 et plus sa couleur devient  intense en somme par example #FF0000 nous avons une forte intensiter pour la couleur <b>Rouge</b>,
+plus ce byte ( r, g ou  b ) se raproche de 255 et plus sa couleur deviendra  intense par example pour #FF0000 nous avons une forte intensiter pour la couleur <b>Rouge</b>,
 est une intensite null pour le <u>green</u> et le <u>blue</u> la couleur rendue sera <b>Rouge</b>
 
 Ici le but est de générer les palettes de couleurs Monochrome 1-bit.. , Regular and Non-Regular 3-bit.... en couleur 24-bit  
