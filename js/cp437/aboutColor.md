@@ -80,9 +80,10 @@ function rgb3( r,g,b ){
 | 1         | 0001   | low blue  |
 | 9         | 1001   | high blue |
 
-Tableau 4-bit une première déduction 256 / 3 = 85 &rarr; 0x55, il sera notre chiffre clef.
+dans le tableaux ci-dessus on peut voir que nous utilisons 3 bits pour le <u>rgb</u> est un quatrième bit qui correspont à l'intensité.
+Ci-dessous le tableau de la palette 4-bit une première déduction 256 / 3 = 85 &rarr; 0x55, il sera notre chiffre clef.
 
-bien retenir 0x55 + 0x55 = 0xAA + 0x55 = 0xFF 
+bien retenir que 0x55 + 0x55 = 0xAA + 0x55 = 0xFF 
 
 | interger      | Binary        | Hex    |
 | ------------- |:-------------:| -----: |
