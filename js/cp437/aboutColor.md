@@ -81,9 +81,9 @@ function rgb3( r,g,b ){
 | 9         | 1001   | high blue |
 
 dans le tableaux ci-dessus on peut voir que nous utilisons 3 bits pour le <u>rgb</u> est un quatrième bit qui correspont à l'intensité.
-Ci-dessous le tableau de la palette 4-bit une première déduction 256 / 3 = 85 &rarr; 0x55, il sera notre chiffre clef.
+Ci-dessous le tableau de la palette 4-bit avec une première déduction 256 / 3 = 85 &rarr; 0x55, il sera notre chiffre clef.
 
-bien retenir que 0x55 + 0x55 = 0xAA + 0x55 = 0xFF 
+bien retenir que <b>0x55 + 0x55 = 0xAA + 0x55 = 0xFF </b>
 
 | interger      | Binary        | Hex    |
 | ------------- |:-------------:| -----: |
@@ -107,9 +107,13 @@ bien retenir que 0x55 + 0x55 = 0xAA + 0x55 = 0xFF
 Nous pouvons remarquer lorsque l'intensiter est à 0 nous avons 0xAA ( 170 en decimal  ) et lorsque l'intsiter est à 1 
 pour 0 nous avons 0x55 et pour 1 &rarr; 0xFF
 
-le calcul sera de : 
+on suivera donc cette logique avec une exception : 
 
  ( ( x << 1 ) | intensity ) * 0x55
+ 
+ quand i == 6 alors on divisera just cette somme par deux pour le rayon <b>Green</b>:
+ 
+  ( ( ( x << 1 ) | intensity ) * 0x55 ) / 2
  
 | bit           | Intensity     | equal | Output |
 | ------------- |:-------------:|:-----:| -----: |
