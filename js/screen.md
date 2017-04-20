@@ -5,6 +5,7 @@
     monitor: DOMHtml canvas,
     width: uint x,
     height: uint y,
+    rgba: bool useRGBA
     });
 ```
 **Global :**
@@ -109,7 +110,15 @@ parameters : void
 ```javascript
   guid.refresh( );
 ```
+>###snapshot
 
+parameters : uint x, uint y, uint color
+<br>@return void
+
+```javascript
+  guid.snapshot( ); // dataURL
+  ```
+  
 >###intToRgb
 
 parameters : uint color
