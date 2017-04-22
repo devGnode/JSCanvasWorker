@@ -132,7 +132,78 @@ parameters : callback
   
   }); // dataURL
   ```
- 
+ >###tiles JSON opts{
+  
+    mod:0
+    offsetTileX : tile width
+    mod:1
+    palette: Array PaletteColor[...,...]
+    offsetTileX : tile width,
+    offsetTileY : tile height
+    mod:2
+    offsetTileX : tile width,
+    offsetTileY : tile height
+    
+    
+    //
+    buffer: Array[]
+    
+ }
+
+parameters : callback
+<br>@return void
+
+```javascript
+  var tile = [
+  0, 0xfefefe, 0xfafafa, 0xffffff ... // color data 
+  ...
+  ];
+  // mod 0
+  // 8*8
+guid.tiles({ 
+    mod:0,
+    offsetX: 8,
+  
+  })( screen_x, screen_y, tile )
+  
+  // mod 1
+  // 8*8
+ var tile = [
+  0,3,3,2
+  0,2,2,1
+  ...
+  ];
+guid.tiles({ 
+    mod:1,
+    offsetTileX: 8,
+    offsetTileY:8
+    palette:[
+       0, 0xfefefe, 0xfafafa, 0xffffff ... // color data 
+    ],
+    
+  })( screen_x, screen_y, tile )
+  
+  // mod 2
+  // 9*8
+ var tile = [
+  0,3,3,2
+  0,2,2,1
+  ...
+  ];
+guid.tiles({ 
+    mod:1,
+    offsetTileX: 8,
+    offsetTieY:9,
+    palette:[
+       0, 0xfefefe, 0xfafafa, 0xffffff ... // color data 
+    ],
+    
+  })( screen_x, screen_y, tile, 1 color font 0xfefefe , 0 background || null  )
+  ```
+  
+  
+  
+  
 >###intToRgb
 
 parameters : uint color
