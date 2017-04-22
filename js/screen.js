@@ -2,8 +2,24 @@
 /*
 * @LUpdate 17/04/2017
 * @VErsion 1.3
+* 
+work arrond to canvas object
+setting
+	{
+	 monitor : handle canvas,
+	 width: uint32,
+	 height: uint32, 
+	 
+	 
+	 
+	 no facultif
+	 rgba: true, default 0xFF	
+	 buffer: [] //
+	
+	}
 */
 var graphicalUserInterface = function( setting, _self ){
+	
 		var self = _self || {};
 		var rawMonitor = setting.monitor,
 			ctxMonitor = rawMonitor.getContext("2d"),
@@ -18,7 +34,7 @@ var graphicalUserInterface = function( setting, _self ){
 			
 			
 	["x","y"].map( function( val ){
-			self["screen_"+val ] = val == "x" ? screen_x : screen_y;
+			self["screen_"+val ] = val == "x" ? this.screen_x : this.screen_y;
  	});
 	self.drawImage = function( imgNode ){
 		ctxMonitor.drawImage( imgNode, 0,0 );
@@ -100,5 +116,60 @@ var graphicalUserInterface = function( setting, _self ){
 		};
 	};
 	
+	// @proc
+	// @return void
+	// browse each pixelDepth
+	self.each = function( callback ){
+		var tmp, offset = 0;
+		try{
+			for(; offset < (this.screen_x * this.screen_y)*4 ; offset+=4 ){
+					
+				callback.call(
+					( setting.buffer || this ),			   // this
+					offset/4,							  // addr 
+					( tmp = this.getRawPixel( offset ) ),// int color
+					this.intToRgb( tmp ),				// JSON{ rgb }
+					parseInt( offset%this.screen_x ),  // X position
+					parseInt( offset/this.screen_y )  // Y position
+				);
+			}
+		}catch(e){};
+	return this;
+	};
+	//
+	// v 1.3
+	self.sprite = function( opts ){
+		var _self = this;
+	return ( this[ opts.name ] = function( x, y, sprite, clr, bckg ){
+			var offsetX = x * ( opts.offsetTileX || 1 ),
+				offsetY = y * ( opts.offsetTileY || 1 ),
+				len = sprite.length,
+				i=0;
+			try{
+				for(; i < len; i++ ){
+					
+					_self.setPixel( 
+						parseInt( i% opts.tileX ) + offsetX,
+						parseInt( i/ opts.tileX ) + offsetY,
+						// himself
+						!opts.mod || opts.mod === 0 ?
+							sprite[ i ] :
+						opts.mod === 1 ?
+							opts.palette[ sprite[i] ] :
+						// binary img
+						opts.mod === 2 ?
+							( sprite[ i ] === 1 ? clr : 
+							  sprite[ i ] === 0 && ( bckg || bckg >= 0 ) ? bckg : _self.getRawPixel( i ) ) 
+							  : void 0
+					);
+				}		
+			}catch(e){
+				//error 
+				console.log(e);
+				return false;
+			}
+			return true;
+		} );		
+	};
 return self;
 };
