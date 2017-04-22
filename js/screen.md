@@ -167,7 +167,7 @@ var mtile= guid.tiles({
     
   }).setTiles( screen_x, screen_y, tile );
 ```
-<img src="http://hpics.li/c6694ea">
+<img src="http://www.hostingpics.net/viewer.php?id=779638imgnormal.png">
 ```javascript
 var mtile= guid.tiles({ 
     mod:0,
@@ -179,7 +179,7 @@ var mtile= guid.tiles({
   }).setTilesByOffset(  5, tile );
 ```
 
-<img src="http://hpics.li/ca394b2">
+<img src="hhttp://www.hostingpics.net/viewer.php?id=405534imgcenter.png">
 
 ```javascript
   // mod 1
