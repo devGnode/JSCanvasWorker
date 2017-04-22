@@ -160,14 +160,16 @@ parameters : callback
   ];
   // mod 0
   // 8*8
-var tile= guid.tiles({ 
+var mtile= guid.tiles({ 
     mod:0,
     offsetTilesX: 8,
     offsetTileY: 8,
     
   }).setTiles( screen_x, screen_y, tile );
-  
-var tile= guid.tiles({ 
+```
+<img src="http://hpics.li/c6694ea">
+```javascript
+var mtile= guid.tiles({ 
     mod:0,
     offsetTilesX: 8,
     offsetTileY: 8,
@@ -175,7 +177,11 @@ var tile= guid.tiles({
     center: true,
     
   }).setTilesByOffset(  5, tile );
- 
+```
+
+<img src="http://hpics.li/ca394b2">
+
+```javascript
   // mod 1
   // 8*8
  var tile = [
