@@ -160,12 +160,22 @@ parameters : callback
   ];
   // mod 0
   // 8*8
-guid.tiles({ 
+var tile= guid.tiles({ 
     mod:0,
-    offsetX: 8,
+    offsetTilesX: 8,
+    offsetTileY: 8,
+    
+  }).setTiles( screen_x, screen_y, tile );
   
-  })( screen_x, screen_y, tile )
-  
+var tile= guid.tiles({ 
+    mod:0,
+    offsetTilesX: 8,
+    offsetTileY: 8,
+    
+    center: true,
+    
+  }).setTilesByOffset(  5, tile );
+ 
   // mod 1
   // 8*8
  var tile = [
@@ -175,8 +185,8 @@ guid.tiles({
   ];
 guid.tiles({ 
     mod:1,
-    offsetTileX: 8,
-    offsetTileY:8
+    offsetTilesX: 8,
+    offsetTilesY:8
     palette:[
        0, 0xfefefe, 0xfafafa, 0xffffff ... // color data 
     ],
@@ -199,8 +209,8 @@ guid.tiles({
   ];
 guid.tiles({ 
     mod:1,
-    offsetTileX: 8,
-    offsetTieY:9,
+    offsetTilesX: 8,
+    offsetTiesY:9,
     palette:[
        0, 0xfefefe, 0xfafafa, 0xffffff ... // color data 
     ],
