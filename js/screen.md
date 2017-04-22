@@ -1,7 +1,8 @@
 #graphicalUserInterface
 
 ```javascript
-  var guid = graphicalUserInterface({
+  var opts;
+  var guid = graphicalUserInterface( opts = {
     monitor: DOMHtml canvas,
     width: uint x,
     height: uint y,
@@ -118,7 +119,20 @@ parameters : uint x, uint y, uint color
 ```javascript
   guid.snapshot( ); // dataURL
   ```
+ 
+ >###each
+
+parameters : callback
+<br>@return void
+
+```javascript
+  guid.each( function( addr, colorUint32, JSON rgb, uint32 x, uint32 y ){
+    
+    this == guid or buffer if opts.buffer is declared
   
+  }); // dataURL
+  ```
+ 
 >###intToRgb
 
 parameters : uint color
