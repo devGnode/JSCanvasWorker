@@ -34,7 +34,7 @@ var graphicalUserInterface = function( setting, _self ){
 			
 			
 	["x","y"].map( function( val ){
-			self["screen_"+val ] = val == "x" ? this.screen_x : this.screen_y;
+			self["screen_"+val ] = val == "x" ? screen_x : screen_y;
  	});
 	self.drawImage = function( imgNode ){
 		ctxMonitor.drawImage( imgNode, 0,0 );
@@ -52,8 +52,8 @@ var graphicalUserInterface = function( setting, _self ){
 	};
 	// resize Monitor
 	self.resize = function( x, y ){
-		rawMonitor.width  = self.screen_x = screen_x = x;
-		rawMonitor.height = self.screen_y = screen_y = y;
+		rawMonitor.width  = this.screen_x = screen_x = x;
+		rawMonitor.height = this.screen_y = screen_y = y;
 		screen_d = ctxMonitor.createImageData( x, y );
 	};
 	["get","set"].map( function( val ){
@@ -138,19 +138,35 @@ var graphicalUserInterface = function( setting, _self ){
 	};
 	//
 	// v 1.3
-	self.sprite = function( opts ){
+	self.tiles = function( opts ){
 		var _self = this;
-	return ( this[ opts.name ] = function( x, y, sprite, clr, bckg ){
-			var offsetX = x * ( opts.offsetTileX || 1 ),
-				offsetY = y * ( opts.offsetTileY || 1 ),
+	return {
+		
+		setLitesByOffset:function( offset, sprite, clr, bckg ){	
+		return this.setLites( 
+				parseInt( offset% ( _self.screen_x / opts.offsetTilesX ) ),
+				parseInt( offset/ ( _self.screen_x / opts.offsetTilesX ) ),
+				sprite,
+				clr,
+				bckg
+			);
+		},
+		setLites:function( x, y, sprite, clr, bckg ){
+			var offsetX = x * ( opts.offsetTilesX || 1 ),
+				offsetY = y * ( opts.offsetTilesY || 1 ),
+				// center opts
+				cx = opts.center ? parseInt( opts.offsetTilesX/2  ) : 0,
+				cy = opts.center ? parseInt( opts.offsetTilesY/2 )  : 0,
 				len = sprite.length,
 				i=0;
+				//check
+				offsetX /= opts.mod === 0 ? opts.offsetTilesX : 1;
+				offsetY /= opts.mod === 0 ? opts.offsetTilesY : 1;
+				
 			try{
 				for(; i < len; i++ ){
-					
-					_self.setPixel( 
-						parseInt( i% opts.tileX ) + offsetX,
-						parseInt( i/ opts.tileX ) + offsetY,
+					_self.setRawPixel( 
+						( ( ((( parseInt( i/ opts.offsetTilesX ) + offsetY ) - cy ) * _self.screen_x ) + ((parseInt( i% opts.offsetTilesX )- cx + offsetX ) ))*0x04 ),
 						// himself
 						!opts.mod || opts.mod === 0 ?
 							sprite[ i ] :
@@ -168,8 +184,11 @@ var graphicalUserInterface = function( setting, _self ){
 				console.log(e);
 				return false;
 			}
-			return true;
-		} );		
+		return ( opts.buffer ? opts.buffer : true );
+		}
+	};		
 	};
+	
+	
 return self;
 };
