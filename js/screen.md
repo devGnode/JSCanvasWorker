@@ -16,7 +16,7 @@
 
 **methods :**
 
->###drawImage
+## .drawImage
 
 parameters : DOMImage node
 <br>@return void
@@ -25,7 +25,7 @@ parameters : DOMImage node
   guid.drawImage( imgNode );
 ```
   
->###resetScreen 
+### .resetScreen 
 
 parameters : int color || str color
 <br>@return void
@@ -34,7 +34,7 @@ parameters : int color || str color
   guid.resetScreen( 0 );
 ```
 
->###resize 
+### .resize 
 
 parameters : uint x, uint y
 <br>@return void
@@ -51,7 +51,7 @@ parameters : uint offset
 ```javascript
   guid.getRawPixel( 256 );
 ``` 
->###setRawPixel
+### .setRawPixel
 
 parameters : uint offset, uint color
 <br>@return void
@@ -59,7 +59,7 @@ parameters : uint offset, uint color
 ```javascript
   guid.setRawPixel( 255, 16777215 );
 ```
->###getPixel
+### .getPixel
 
 parameters : uint x, uint y
 <br>@return **uint** colorRGB
@@ -68,7 +68,7 @@ parameters : uint x, uint y
   guid.getPixel( 1, 0 );
 ```
 
->###setPixel
+### .setPixel
 
 parameters : uint x, uint y, uint color
 <br>@return void
@@ -77,7 +77,8 @@ parameters : uint x, uint y, uint color
   guid.setPixel( 1, 0, 16711680 ); // #ff0000 -> red -> 1671168
   ```
 
->###getLine
+>
+### .getLine
 
 parameters : uint y (, bool key  )
 <br>@return Array ret[ addr1, addr2,... ] if key is false
@@ -92,7 +93,7 @@ parameters : uint y (, bool key  )
       line[ 1 ];
 ```
 
->###setLine
+### .setLine
 
 parameters : uint y ,[ Array [0,1,2], bool key=true || Array[ offset, offset ] || uintcolor ][, bool key ]
 <br>@return void
@@ -103,7 +104,7 @@ parameters : uint y ,[ Array [0,1,2], bool key=true || Array[ offset, offset ] |
   guid.setLine( 2, [ 0 => 16777215, 1 =>255 ,...], true );
 ```
 
->###refresh
+### .refresh
 
 parameters : void
 @return void
@@ -111,16 +112,16 @@ parameters : void
 ```javascript
   guid.refresh( );
 ```
->###snapshot
+### .snapshot
 
-parameters : uint x, uint y, uint color
+parameters : void
 <br>@return void
 
 ```javascript
   guid.snapshot( ); // dataURL
   ```
  
- >###each
+ ### .each
 
 parameters : callback
 <br>@return void
@@ -130,19 +131,20 @@ parameters : callback
     
     this == guid or buffer if opts.buffer is declared
   
-  }); // dataURL
+  }); 
   ```
- >###tiles JSON opts{
-  
-    mod:0
-    offsetTileX : tile width
+ ### Object tiles 
+ ### .setTiles
+ ### .setTilesByOffset
+    
+    JSON opts {
+    mod:0 or 1 or 2
+    
+    mod:0,
+    center: 1 or 0 
+    // 
     mod:1
     palette: Array PaletteColor[...,...]
-    offsetTileX : tile width,
-    offsetTileY : tile height
-    mod:2
-    offsetTileX : tile width,
-    offsetTileY : tile height
     
     
     //
